@@ -11,63 +11,46 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
-  name = "Posts"
+  name = "理论"
   pageRef = "posts"
   weight = 10
 
 [[main]]
-  name = "示例"
+  name = "技术"
+  pageRef = "posts"
   weight = 20
 
 [[main]]
-  name = "功能示例"
-  parent = "示例"
-  pageRef = "samples"
-  weight = 16
-
-[[main]]
-  name = "模板示例"
-  parent = "示例"
-  pageRef = "examples"
+  name = "论文"
+  pageRef = "posts"
   weight = 30
 
 [[main]]
-  name = "部署指南"
-  parent = "示例"
-  pageRef = "guides"
-  weight = 40
-
-[[main]]
-  name = "Tools"
-  pageRef = "Tools"
-  weight = 90
-
-[[main]]
-  name = "周边"
-  url = "https://www.teepublic.com/user/blowfish-store/t-shirts"
+  name = "其他"
   weight = 100
 
-#[[main]]
-#  name = "Test"
-#  pageRef = "pagTest"
-#  weight = 1000
+[[main]]
+  name = "哲学"
+  parent = "其他"
+  pageRef = "philosophy"
+  weight = 16
 
 [[main]]
-  identifier = "twitter"
-  pre = "x-twitter"
-  url = "https://twitter.com/burufugu"
-  weight = 200
+  name = "金融"
+  parent = "其他"
+  pageRef = "finance"
+  weight = 30
 
-#[[main]]
-#  identifier = "mastodon"
-#  pre = "mastodon"
-#  weight = 300
-#  url = "https://masto.ai/@blowfish"
+[[main]]
+  name = "音乐"
+  parent = "其他"
+  pageRef = "music"
+  weight = 40
 
 [[main]]
   identifier = "github"
   pre = "github"
-  url = "https://github.com/nunocoracao/blowfish"
+  url = "https://github.com/Latnx"
   weight = 400
 
 
