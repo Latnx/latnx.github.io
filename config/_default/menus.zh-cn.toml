@@ -12,7 +12,7 @@
 
 [[main]]
   name = "理论"
-  pageRef = "theory"
+  pageRef = "docs/theory"
   weight = 10
 
 [[main]]
@@ -22,7 +22,7 @@
 
 [[main]]
   name = "论文"
-  pageRef = "paper"
+  pageRef = "docs/paper"
   weight = 30
 
 [[main]]
@@ -32,7 +32,7 @@
 [[main]]
   name = "哲学"
   parent = "其他"
-  pageRef = "philosophy"
+  pageRef = "docs/philosophy"
   weight = 16
 
 [[main]]
@@ -44,7 +44,7 @@
 [[main]]
   name = "音乐"
   parent = "其他"
-  pageRef = "music"
+  pageRef = "docs/music"
   weight = 40
 
 [[main]]
