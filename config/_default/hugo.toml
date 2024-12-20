@@ -12,7 +12,7 @@ disableLanguages = [] #to allow translation work requiring shipping to productio
 enableRobotsTXT = true
 [pagination]
   pagerSize = 10
-summaryLength = 30
+summaryLength = 10
 hasCJKLanguage = true
 
 buildDrafts = false

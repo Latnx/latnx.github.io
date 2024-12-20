@@ -12,17 +12,17 @@
 
 [[main]]
   name = "理论"
-  pageRef = "posts"
+  pageRef = "theory"
   weight = 10
 
 [[main]]
   name = "技术"
-  pageRef = "posts"
+  pageRef = "technology"
   weight = 20
 
 [[main]]
   name = "论文"
-  pageRef = "posts"
+  pageRef = "paper"
   weight = 30
 
 [[main]]
