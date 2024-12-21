@@ -3,6 +3,7 @@ title = 'Markdown 规范'
 date = 2024-09-28T21:51:42+08:00
 description = '本文是本网站的写作模板'
 draft = false
+tags = ["Markdown", "模板"]
 +++
 Markdown具有良好的可读性和跨平台兼容性。良好的风格指南（Style Guide）适合编写者阅读，也便于自动转换为 HTML 等格式。
 

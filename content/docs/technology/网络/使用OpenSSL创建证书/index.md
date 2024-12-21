@@ -3,6 +3,7 @@ title = '使用OpenSSL创建证书'
 date = 2024-12-21T20:54:13+08:00
 draft = false
 featureimage = 'https://mygitea.higeorgehu.top:666/shy/shy_IMG/raw/branch/main/img/image-20241209203542229.png'
+tags = ["证书", "SSL", "公钥"]
 +++
 
 描述使用什么工具、如何创建的数字证书,
