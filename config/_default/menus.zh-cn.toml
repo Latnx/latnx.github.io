@@ -11,6 +11,11 @@
 # ordered by weight from lowest to highest.
 
 [[main]]
+  name = "笔记"
+  pageRef = "docs/notes"
+  weight = 5
+
+[[main]]
   name = "理论"
   pageRef = "docs/theory"
   weight = 10

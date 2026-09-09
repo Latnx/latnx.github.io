@@ -1,0 +1,13 @@
+.article-content {
+  overflow-wrap: anywhere;
+}
+
+.mermaid {
+  max-width: 100%;
+  overflow-x: auto;
+  text-align: left;
+}
+
+.mermaid svg {
+  max-width: none !important;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "latnx-notes-site",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "import:obsidian": "node scripts/import-obsidian.mjs",
+    "test": "node --test scripts/import-obsidian.test.mjs"
+  },
+  "dependencies": {
+    "remark-frontmatter": "5.0.0",
+    "remark-gfm": "4.0.1",
+    "remark-parse": "11.0.0",
+    "unified": "11.0.5",
+    "yaml": "2.9.0"
+  }
+}

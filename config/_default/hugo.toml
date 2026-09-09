@@ -3,7 +3,7 @@
 # https://blowfish.page/docs/getting-started/
 
 theme = "blowfish"
-baseURL = "http://latnx.github.io"
+baseURL = "https://latnx.github.io/"
 defaultContentLanguage = "zh-cn"
 disableLanguages = [] #to allow translation work requiring shipping to production
 
