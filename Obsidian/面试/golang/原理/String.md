@@ -1,0 +1,76 @@
+```go
+type stringStruct struct {
+    str unsafe.Pointer
+    len int
+}
+```
+通过观察字符串的结构定义我们可以发现，其定义中并没有一个表示容量(Cap)的字段，所以意味着字符串类型并不能被扩容，字符换上的写操作包括拼接，追加等等都是通过拷贝来实现的。
+### string与[]byte的转化原理
+
+![[string原理2-CwEY6E6A.png]]
+
+### 字符串拼接性能分析
+
+| 方法              | 说明                                                                                          |
+| --------------- | ------------------------------------------------------------------------------------------- |
+| +               | `+` 拼接 2 个字符串时，会生成一个新的字符串，开辟一段新的内存空间，新空间的大小是原来两个字符串的大小之和，所以每拼接一次就要开辟一段空间，性能较差               |
+| Sprintf         | `Sprintf` 会从临时对象池中获取一个对象，然后进行格式化操作，最后转换为 string，再释放对象，实现较复杂，性能较差                            |
+| strings.Builder | 底层使用 `[]byte` 存储，转换为字符串时可以复用底层数据。支持预分配内存并自动扩容，因此减少内存分配次数，性能最好                               |
+| bytes.Buffer    | 底层使用 `[]byte`，但转换为字符串时不可复用，会重新申请一块内存存放字符串。实现类似 `strings.Builder`，性能略差                       |
+| append          | 直接使用 `[]byte` 的扩容机制，可复用，支持预分配和自动扩容。性能优于 `+` 和 `Sprintf`，如果提前分配好内存，性能接近 `strings.Builder`    |
+| string.Join     | `strings.Join` 性能约等于 `strings.Builder`，适合已有 `string slice` 的情况。如果需要先构造 slice，再 Join，则会有额外开销 |
+```go
+strings.Builder ≈ string.Join ≈ append
+    > bytes.Buffer
+    > +
+    > fmt.Sprintf
+```
+```go
+func main() {  
+	// 1. + 拼接  
+	s1 := "Hello"  
+	s2 := "World"  
+	result1 := s1 + " " + s2  
+	fmt.Println(result1)  
+	  
+	// 2. fmt.Sprintf  
+	result2 := fmt.Sprintf("%s %s", s1, s2)  
+	fmt.Println(result2)  
+	  
+	// 3. strings.Builder  
+	var builder strings.Builder  
+	builder.WriteString("Hello")  
+	builder.WriteString(" ")  
+	builder.WriteString("World")  
+	result3 := builder.String()  
+	fmt.Println(result3)  
+	  
+	// Builder 预分配容量  
+	var builder2 strings.Builder  
+	builder2.Grow(64)  
+	builder2.WriteString("Go")  
+	builder2.WriteString(" Builder")  
+	fmt.Println(builder2.String())  
+	  
+	// 4. bytes.Buffer  
+	var buffer bytes.Buffer  
+	buffer.WriteString("Hello")  
+	buffer.WriteString(" ")  
+	buffer.WriteString("World")  
+	result4 := buffer.String()  
+	fmt.Println(result4)  
+	  
+	// 5. append + []byte  
+	b := make([]byte, 0, 32) // 预分配容量  
+	b = append(b, "Hello"...)  
+	b = append(b, ' ')  
+	b = append(b, "World"...)  
+	result5 := string(b)  
+	fmt.Println(result5)  
+	  
+	// 6. strings.Join  
+	parts := []string{"Hello", "World"}  
+	result6 := strings.Join(parts, " ")  
+	fmt.Println(result6)  
+}
+```

@@ -1,0 +1,31 @@
+怎么才能在用户不做操作的情况下，网页能收到消息，并发生改变
+
+## HTTP轮询
+
+通过前端代码不断发送HTTP请求到服务器：微信登陆
+
+## 长轮询
+
+将HTTP请求的超时设置的很大，超时后再发送下一次请求：百度网盘
+
+## WebSocket
+
+客户端
+```http
+Connection: Upgrade
+Upgrade: WebSocket
+Sec-WebSocket-Key: T2a6wZlAwhgQNqruZ2YUyg==\r\n
+```
+服务器
+``` http
+HTTP/1.1 101 Switching Protocols\r\n
+Sec-WebSocket-Accept: iBJKv/ALIW2DobfoA4dmr3JHBCY=\r\n
+Upgrade: WebSocket\r\n
+Connection: Upgrade\r\n
+```
+
+- opcode：1:string, 2:[]byte, 8:关闭
+- payload长度：0-125 用7bit，126用7+16bit，127用7+64bit
+![[Pasted image 20260314213332.png]]
+
+使用场景：客户端和服务器需要频繁交互的场景，全双工
